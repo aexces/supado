@@ -17,6 +17,7 @@ class EmailField extends StatelessWidget {
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
           maxLength: EmailAddress.maxLength,
+          cursorColor: Theme.of(context).primaryColor,
           decoration: const InputDecoration(
             hintText: "Email address",
             counterText: "",

@@ -20,6 +20,7 @@ class PasswordField extends StatelessWidget {
               : AutovalidateMode.disabled,
           obscureText: state.showPassword,
           maxLength: Password.maxLength,
+          cursorColor: Theme.of(context).primaryColor,
           decoration: InputDecoration(
             hintText: "Password",
             counterText: "",

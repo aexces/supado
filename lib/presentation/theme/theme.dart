@@ -18,7 +18,9 @@ ThemeData lightThemeData() {
       color: AppColors.lightPrimaryColor,
       iconColor: AppColors.lightPrimaryColor,
     ),
+
     inputDecorationTheme: InputDecorationTheme(
+      floatingLabelBehavior: FloatingLabelBehavior.always,
       enabledBorder: buildBorder(AppColors.lightPrimaryColor),
       border: buildBorder(AppColors.lightPrimaryColor),
       focusedBorder: buildBorder(AppColors.lightPrimaryColor),

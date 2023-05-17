@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:supado/application/auth/auth_bloc.dart';
 import 'package:supado/application/theme/theme_bloc.dart';
+import 'package:supado/injection.dart';
+import 'package:supado/presentation/sign_in/sign_in_page.dart';
 import 'package:supado/presentation/theme/theme.dart';
 import '../splash/splash_page.dart';
 
@@ -14,6 +17,12 @@ class AppWidget extends StatelessWidget {
         BlocProvider(
           create: (context) => ThemeBloc(),
         ),
+        BlocProvider(
+          create: (context) => getIt<AuthBloc>()
+            ..add(
+              const AuthEvent.authCheckRequested(),
+            ),
+        ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         buildWhen: (p, c) => p.theme != c.theme,
@@ -26,7 +35,11 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appThemeData[state.theme],
-      home: const SplashPage(),
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (_) => const SplashPage(),
+        '/signIn': (_) => const SignInPage(),
+      },
     );
   }
 }

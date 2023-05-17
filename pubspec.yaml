@@ -28,7 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  another_flushbar: ^1.10.29
+  another_flushbar: ^1.12.30
   dartz: ^0.10.1
   dio: ^4.0.6
   flutter:

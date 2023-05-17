@@ -11,13 +11,18 @@ class AutoSave extends StatelessWidget {
     return BlocBuilder<SignInBloc, SignInState>(
       buildWhen: (p, c) => p.autoSave != c.autoSave,
       builder: (context, state) {
-        return CheckboxListTile(
-          value: state.autoSave,
-          activeColor: Theme.of(context).primaryColor,
-          title: const Text("Auto save credentials"),
-          onChanged: (_) => context.read<SignInBloc>().add(
-                const SignInEvent.autoSaveChanged(),
-              ),
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text("Auto save credentials"),
+            Checkbox(
+              value: state.autoSave,
+              activeColor: Theme.of(context).primaryColor,
+              onChanged: (_) => context.read<SignInBloc>().add(
+                    const SignInEvent.autoSaveChanged(),
+                  ),
+            ),
+          ],
         );
       },
     );

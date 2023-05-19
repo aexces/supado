@@ -4,6 +4,7 @@ import 'package:supado/presentation/core/strings.dart';
 import 'package:supado/presentation/extension/snackbar_extension.dart';
 import 'package:supado/presentation/sign_in/widgets/sign_in_body.dart';
 import '../../../application/auth/sign_in/sign_in_bloc.dart';
+import '../../core/router.dart';
 
 class SignInListener extends StatelessWidget {
   const SignInListener({super.key});
@@ -23,7 +24,10 @@ class SignInListener extends StatelessWidget {
                       clientFailure: (e) => e.msg,
                     ),
                   ),
-                  (d) => print(d),
+                  (_) => Navigator.of(context).pushNamedAndRemoveUntil(
+                    router[AppRouter.home]!,
+                    (route) => false,
+                  ),
                 ));
       },
       child: const SignInBody(),

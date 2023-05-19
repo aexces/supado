@@ -7,5 +7,6 @@ class SignInEvent with _$SignInEvent {
   const factory SignInEvent.passwordChanged(String password) = _PasswordChanged;
   const factory SignInEvent.autoSaveChanged() = _AutoSaveChanged;
   const factory SignInEvent.obscureTextChanged() = _ObscureTextChanged;
-  const factory SignInEvent.submit() = _Submit;
+  const factory SignInEvent.signIn() = _SignIn;
+  const factory SignInEvent.signUp() = _SignUp;
 }

@@ -11,14 +11,14 @@ class PasswordField extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SignInBloc, SignInState>(
       buildWhen: (p, c) =>
-          p.showPassword != c.showPassword ||
+          p.hidePassword != c.hidePassword ||
           p.showErrorMessages != c.showErrorMessages,
       builder: (context, state) {
         return TextFormField(
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
-          obscureText: state.showPassword,
+          obscureText: state.hidePassword,
           maxLength: Password.maxLength,
           cursorColor: Theme.of(context).primaryColor,
           decoration: InputDecoration(
@@ -30,7 +30,7 @@ class PasswordField extends StatelessWidget {
                   .add(const SignInEvent.obscureTextChanged()),
               splashRadius: 20,
               icon: Icon(
-                state.showPassword
+                state.hidePassword
                     ? Icons.remove_red_eye
                     : Icons.remove_red_eye_outlined,
                 color: Theme.of(context).primaryColor,

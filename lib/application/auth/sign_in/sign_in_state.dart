@@ -7,7 +7,7 @@ class SignInState with _$SignInState {
     required EmailAddress emailAddress,
     required Password password,
     required bool autoSave,
-    required bool showPassword,
+    required bool hidePassword,
     required bool showErrorMessages,
     required Option<Either<Failure, Unit>> failureOrSuccessOption,
   }) = _SignInState;
@@ -15,7 +15,7 @@ class SignInState with _$SignInState {
   factory SignInState.initial() => SignInState(
         isSigning: false,
         autoSave: false,
-        showPassword: false,
+        hidePassword: true,
         emailAddress: EmailAddress(""),
         password: Password(""),
         showErrorMessages: false,

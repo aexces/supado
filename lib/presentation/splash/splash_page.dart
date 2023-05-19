@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:supado/presentation/core/router.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../widgets/loading.dart';
@@ -13,13 +14,14 @@ class SplashPage extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) {},
-          unAuthenticated: (_) {
-            Navigator.of(context).pushNamedAndRemoveUntil(
-              "/signIn",
-              (route) => false,
-            );
-          },
+          authenticated: (_) => Navigator.of(context).pushNamedAndRemoveUntil(
+            router[AppRouter.home]!,
+            (route) => false,
+          ),
+          unAuthenticated: (_) => Navigator.of(context).pushNamedAndRemoveUntil(
+            router[AppRouter.signIn]!,
+            (route) => false,
+          ),
         );
       },
       child: const Scaffold(

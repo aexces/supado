@@ -30,10 +30,33 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           failureOrSuccessOption: none(),
         )),
         obscureTextChanged: (_) async => emit(state.copyWith(
-          showPassword: !state.showPassword,
+          hidePassword: !state.hidePassword,
           failureOrSuccessOption: none(),
         )),
-        submit: (e) async {
+        signIn: (e) async {
+          if (state.isSigning) return;
+          Either<Failure, Unit>? failureOrSuccess;
+
+          final isEmailValid = state.emailAddress.isValid();
+          final isPasswordValid = state.password.isValid();
+          if (isEmailValid && isPasswordValid) {
+            emit(state.copyWith(
+              isSigning: true,
+              failureOrSuccessOption: none(),
+            ));
+
+            failureOrSuccess = await _facade.signInWithCredentials(
+              emailAddress: state.emailAddress,
+              password: state.password,
+            );
+          }
+          emit(state.copyWith(
+            isSigning: false,
+            showErrorMessages: true,
+            failureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        },
+        signUp: (e) async {
           if (state.isSigning) return;
           Either<Failure, Unit>? failureOrSuccess;
           final isEmailValid = state.emailAddress.isValid();
@@ -44,7 +67,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
               failureOrSuccessOption: none(),
             ));
 
-            failureOrSuccess = await _facade.signInWithCredentials(
+            failureOrSuccess = await _facade.signUpWithCredentials(
               emailAddress: state.emailAddress,
               password: state.password,
             );

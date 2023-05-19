@@ -45,6 +45,7 @@ class SignInBody extends StatelessWidget {
               const AutoSave(),
               Spacing.height10,
               const SubmitButton(),
+              Spacing.height10,
             ],
           ),
         ),

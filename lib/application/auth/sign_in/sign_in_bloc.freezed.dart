@@ -22,7 +22,8 @@ mixin _$SignInEvent {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +32,8 @@ mixin _$SignInEvent {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +42,8 @@ mixin _$SignInEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,7 +53,8 @@ mixin _$SignInEvent {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +63,8 @@ mixin _$SignInEvent {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +73,8 @@ mixin _$SignInEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,7 +168,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) {
     return emailAddressChanged(emailAddress);
   }
@@ -174,7 +181,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) {
     return emailAddressChanged?.call(emailAddress);
   }
@@ -186,7 +194,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -202,7 +211,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) {
     return emailAddressChanged(this);
   }
@@ -214,7 +224,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) {
     return emailAddressChanged?.call(this);
   }
@@ -226,7 +237,8 @@ class _$_EmailAddressChanged implements _EmailAddressChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (emailAddressChanged != null) {
@@ -315,7 +327,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) {
     return passwordChanged(password);
   }
@@ -327,7 +340,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) {
     return passwordChanged?.call(password);
   }
@@ -339,7 +353,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -355,7 +370,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) {
     return passwordChanged(this);
   }
@@ -367,7 +383,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) {
     return passwordChanged?.call(this);
   }
@@ -379,7 +396,8 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -440,7 +458,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) {
     return autoSaveChanged();
   }
@@ -452,7 +471,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) {
     return autoSaveChanged?.call();
   }
@@ -464,7 +484,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) {
     if (autoSaveChanged != null) {
@@ -480,7 +501,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) {
     return autoSaveChanged(this);
   }
@@ -492,7 +514,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) {
     return autoSaveChanged?.call(this);
   }
@@ -504,7 +527,8 @@ class _$_AutoSaveChanged implements _AutoSaveChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (autoSaveChanged != null) {
@@ -560,7 +584,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) {
     return obscureTextChanged();
   }
@@ -572,7 +597,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) {
     return obscureTextChanged?.call();
   }
@@ -584,7 +610,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) {
     if (obscureTextChanged != null) {
@@ -600,7 +627,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) {
     return obscureTextChanged(this);
   }
@@ -612,7 +640,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) {
     return obscureTextChanged?.call(this);
   }
@@ -624,7 +653,8 @@ class _$_ObscureTextChanged implements _ObscureTextChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) {
     if (obscureTextChanged != null) {
@@ -639,33 +669,33 @@ abstract class _ObscureTextChanged implements SignInEvent {
 }
 
 /// @nodoc
-abstract class _$$_SubmitCopyWith<$Res> {
-  factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
-      __$$_SubmitCopyWithImpl<$Res>;
+abstract class _$$_SignInCopyWith<$Res> {
+  factory _$$_SignInCopyWith(_$_SignIn value, $Res Function(_$_SignIn) then) =
+      __$$_SignInCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SubmitCopyWithImpl<$Res>
-    extends _$SignInEventCopyWithImpl<$Res, _$_Submit>
-    implements _$$_SubmitCopyWith<$Res> {
-  __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
+class __$$_SignInCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res, _$_SignIn>
+    implements _$$_SignInCopyWith<$Res> {
+  __$$_SignInCopyWithImpl(_$_SignIn _value, $Res Function(_$_SignIn) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Submit implements _Submit {
-  const _$_Submit();
+class _$_SignIn implements _SignIn {
+  const _$_SignIn();
 
   @override
   String toString() {
-    return 'SignInEvent.submit()';
+    return 'SignInEvent.signIn()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Submit);
+        (other.runtimeType == runtimeType && other is _$_SignIn);
   }
 
   @override
@@ -678,9 +708,10 @@ class _$_Submit implements _Submit {
     required TResult Function(String password) passwordChanged,
     required TResult Function() autoSaveChanged,
     required TResult Function() obscureTextChanged,
-    required TResult Function() submit,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
   }) {
-    return submit();
+    return signIn();
   }
 
   @override
@@ -690,9 +721,10 @@ class _$_Submit implements _Submit {
     TResult? Function(String password)? passwordChanged,
     TResult? Function()? autoSaveChanged,
     TResult? Function()? obscureTextChanged,
-    TResult? Function()? submit,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
   }) {
-    return submit?.call();
+    return signIn?.call();
   }
 
   @override
@@ -702,11 +734,12 @@ class _$_Submit implements _Submit {
     TResult Function(String password)? passwordChanged,
     TResult Function()? autoSaveChanged,
     TResult Function()? obscureTextChanged,
-    TResult Function()? submit,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
     required TResult orElse(),
   }) {
-    if (submit != null) {
-      return submit();
+    if (signIn != null) {
+      return signIn();
     }
     return orElse();
   }
@@ -718,9 +751,10 @@ class _$_Submit implements _Submit {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_AutoSaveChanged value) autoSaveChanged,
     required TResult Function(_ObscureTextChanged value) obscureTextChanged,
-    required TResult Function(_Submit value) submit,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
   }) {
-    return submit(this);
+    return signIn(this);
   }
 
   @override
@@ -730,9 +764,10 @@ class _$_Submit implements _Submit {
     TResult? Function(_PasswordChanged value)? passwordChanged,
     TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult? Function(_Submit value)? submit,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
   }) {
-    return submit?.call(this);
+    return signIn?.call(this);
   }
 
   @override
@@ -742,18 +777,143 @@ class _$_Submit implements _Submit {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_AutoSaveChanged value)? autoSaveChanged,
     TResult Function(_ObscureTextChanged value)? obscureTextChanged,
-    TResult Function(_Submit value)? submit,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
     required TResult orElse(),
   }) {
-    if (submit != null) {
-      return submit(this);
+    if (signIn != null) {
+      return signIn(this);
     }
     return orElse();
   }
 }
 
-abstract class _Submit implements SignInEvent {
-  const factory _Submit() = _$_Submit;
+abstract class _SignIn implements SignInEvent {
+  const factory _SignIn() = _$_SignIn;
+}
+
+/// @nodoc
+abstract class _$$_SignUpCopyWith<$Res> {
+  factory _$$_SignUpCopyWith(_$_SignUp value, $Res Function(_$_SignUp) then) =
+      __$$_SignUpCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SignUpCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res, _$_SignUp>
+    implements _$$_SignUpCopyWith<$Res> {
+  __$$_SignUpCopyWithImpl(_$_SignUp _value, $Res Function(_$_SignUp) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SignUp implements _SignUp {
+  const _$_SignUp();
+
+  @override
+  String toString() {
+    return 'SignInEvent.signUp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SignUp);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String emailAddress) emailAddressChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() autoSaveChanged,
+    required TResult Function() obscureTextChanged,
+    required TResult Function() signIn,
+    required TResult Function() signUp,
+  }) {
+    return signUp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String emailAddress)? emailAddressChanged,
+    TResult? Function(String password)? passwordChanged,
+    TResult? Function()? autoSaveChanged,
+    TResult? Function()? obscureTextChanged,
+    TResult? Function()? signIn,
+    TResult? Function()? signUp,
+  }) {
+    return signUp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String emailAddress)? emailAddressChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? autoSaveChanged,
+    TResult Function()? obscureTextChanged,
+    TResult Function()? signIn,
+    TResult Function()? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmailAddressChanged value) emailAddressChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_AutoSaveChanged value) autoSaveChanged,
+    required TResult Function(_ObscureTextChanged value) obscureTextChanged,
+    required TResult Function(_SignIn value) signIn,
+    required TResult Function(_SignUp value) signUp,
+  }) {
+    return signUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult? Function(_PasswordChanged value)? passwordChanged,
+    TResult? Function(_AutoSaveChanged value)? autoSaveChanged,
+    TResult? Function(_ObscureTextChanged value)? obscureTextChanged,
+    TResult? Function(_SignIn value)? signIn,
+    TResult? Function(_SignUp value)? signUp,
+  }) {
+    return signUp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmailAddressChanged value)? emailAddressChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_AutoSaveChanged value)? autoSaveChanged,
+    TResult Function(_ObscureTextChanged value)? obscureTextChanged,
+    TResult Function(_SignIn value)? signIn,
+    TResult Function(_SignUp value)? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignUp implements SignInEvent {
+  const factory _SignUp() = _$_SignUp;
 }
 
 /// @nodoc
@@ -762,7 +922,7 @@ mixin _$SignInState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get autoSave => throw _privateConstructorUsedError;
-  bool get showPassword => throw _privateConstructorUsedError;
+  bool get hidePassword => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   Option<Either<Failure, Unit>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -783,7 +943,7 @@ abstract class $SignInStateCopyWith<$Res> {
       EmailAddress emailAddress,
       Password password,
       bool autoSave,
-      bool showPassword,
+      bool hidePassword,
       bool showErrorMessages,
       Option<Either<Failure, Unit>> failureOrSuccessOption});
 }
@@ -805,7 +965,7 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
     Object? emailAddress = null,
     Object? password = null,
     Object? autoSave = null,
-    Object? showPassword = null,
+    Object? hidePassword = null,
     Object? showErrorMessages = null,
     Object? failureOrSuccessOption = null,
   }) {
@@ -826,9 +986,9 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
           ? _value.autoSave
           : autoSave // ignore: cast_nullable_to_non_nullable
               as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
+      hidePassword: null == hidePassword
+          ? _value.hidePassword
+          : hidePassword // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
@@ -855,7 +1015,7 @@ abstract class _$$_SignInStateCopyWith<$Res>
       EmailAddress emailAddress,
       Password password,
       bool autoSave,
-      bool showPassword,
+      bool hidePassword,
       bool showErrorMessages,
       Option<Either<Failure, Unit>> failureOrSuccessOption});
 }
@@ -875,7 +1035,7 @@ class __$$_SignInStateCopyWithImpl<$Res>
     Object? emailAddress = null,
     Object? password = null,
     Object? autoSave = null,
-    Object? showPassword = null,
+    Object? hidePassword = null,
     Object? showErrorMessages = null,
     Object? failureOrSuccessOption = null,
   }) {
@@ -896,9 +1056,9 @@ class __$$_SignInStateCopyWithImpl<$Res>
           ? _value.autoSave
           : autoSave // ignore: cast_nullable_to_non_nullable
               as bool,
-      showPassword: null == showPassword
-          ? _value.showPassword
-          : showPassword // ignore: cast_nullable_to_non_nullable
+      hidePassword: null == hidePassword
+          ? _value.hidePassword
+          : hidePassword // ignore: cast_nullable_to_non_nullable
               as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
@@ -920,7 +1080,7 @@ class _$_SignInState implements _SignInState {
       required this.emailAddress,
       required this.password,
       required this.autoSave,
-      required this.showPassword,
+      required this.hidePassword,
       required this.showErrorMessages,
       required this.failureOrSuccessOption});
 
@@ -933,7 +1093,7 @@ class _$_SignInState implements _SignInState {
   @override
   final bool autoSave;
   @override
-  final bool showPassword;
+  final bool hidePassword;
   @override
   final bool showErrorMessages;
   @override
@@ -941,7 +1101,7 @@ class _$_SignInState implements _SignInState {
 
   @override
   String toString() {
-    return 'SignInState(isSigning: $isSigning, emailAddress: $emailAddress, password: $password, autoSave: $autoSave, showPassword: $showPassword, showErrorMessages: $showErrorMessages, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'SignInState(isSigning: $isSigning, emailAddress: $emailAddress, password: $password, autoSave: $autoSave, hidePassword: $hidePassword, showErrorMessages: $showErrorMessages, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -957,8 +1117,8 @@ class _$_SignInState implements _SignInState {
                 other.password == password) &&
             (identical(other.autoSave, autoSave) ||
                 other.autoSave == autoSave) &&
-            (identical(other.showPassword, showPassword) ||
-                other.showPassword == showPassword) &&
+            (identical(other.hidePassword, hidePassword) ||
+                other.hidePassword == hidePassword) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
@@ -972,7 +1132,7 @@ class _$_SignInState implements _SignInState {
       emailAddress,
       password,
       autoSave,
-      showPassword,
+      hidePassword,
       showErrorMessages,
       failureOrSuccessOption);
 
@@ -989,7 +1149,7 @@ abstract class _SignInState implements SignInState {
       required final EmailAddress emailAddress,
       required final Password password,
       required final bool autoSave,
-      required final bool showPassword,
+      required final bool hidePassword,
       required final bool showErrorMessages,
       required final Option<Either<Failure, Unit>>
           failureOrSuccessOption}) = _$_SignInState;
@@ -1003,7 +1163,7 @@ abstract class _SignInState implements SignInState {
   @override
   bool get autoSave;
   @override
-  bool get showPassword;
+  bool get hidePassword;
   @override
   bool get showErrorMessages;
   @override

@@ -33,7 +33,7 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   static const maxLength = 60;
-  static const minLength = 3;
+  static const minLength = 6;
 
   factory Password(String input) {
     return Password._(validateStringNotEmpty(input)

@@ -16,7 +16,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       await event.map(
         authCheckRequested: (e) async {
           await Future.delayed(const Duration(seconds: 1));
-          emit(const AuthState.unAuthenticated());
+          final clientOption = await _facade.retrieveUser();
+          emit(clientOption.fold(
+            () => const _UnAuthenticated(),
+            (_) => const _Authenticated(),
+          ));
         },
         userAuthenticated: (e) async {},
         signOut: (e) async {},

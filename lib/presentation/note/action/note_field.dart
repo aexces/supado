@@ -15,20 +15,20 @@ class NoteField extends StatelessWidget {
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
-          maxLength: Note.maxLength,
+          maxLength: Todo.maxLength,
           cursorColor: Theme.of(context).primaryColor,
           decoration: const InputDecoration(
             hintText: "Note",
             counterText: "",
           ),
           onChanged: (value) => context.read<NoteFormBloc>().add(
-                NoteFormEvent.noteChanged(value),
+                NoteFormEvent.todoChanged(value),
               ),
-          validator: (_) => context.read<NoteFormBloc>().state.note.value.fold(
+          validator: (_) => context.read<NoteFormBloc>().state.todo.value.fold(
                 (l) => l.maybeMap(
                   empty: (_) => "Note can't be empty!",
                   shortLength: (_) =>
-                      "Note must contains ${Note.minLength} letters",
+                      "Note must contains ${Todo.minLength} letters",
                   invalid: (_) => "Invalid Note",
                   orElse: () => null,
                 ),

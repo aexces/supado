@@ -4,30 +4,29 @@ import 'package:supado/domain/core/value_objects.dart';
 import 'package:supado/domain/core/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:supado/domain/note/i_note_repo.dart';
+import 'package:supado/domain/note/note.dart';
+import 'package:supado/infrastructure/note/note_dtos.dart';
 
 import '../../injection.dart';
 
 @Injectable(as: INoteRepo)
 @prod
 class HomeRepo implements INoteRepo {
-  static const todo = "todo";
+  static const table = "todo";
   @override
   Future<Either<Failure, Unit>> createNote({
-    required Note note,
+    required Todo todo,
     required Message message,
   }) async {
     try {
       final client = getIt<Supabase>().client;
-      final noteStr = note.getOrCrash();
+      final todoStr = todo.getOrCrash();
       final messageStr = message.getOrCrash();
-
-      final f = await client.from(todo).insert({
-        "note": noteStr,
+      await client.from(table).insert({
+        "todo": todoStr,
         "message": messageStr,
       });
-      print(f);
-      print("success");
-      return left(const Failure.serverFailure());
+      return right(unit);
     } on PostgrestException catch (e) {
       print(e.toString());
       return left(Failure.clientFailure(e.message));
@@ -35,15 +34,17 @@ class HomeRepo implements INoteRepo {
   }
 
   @override
-  Future<Either<Failure, List<Unit>>> watchNotes() async {
+  Future<Either<Failure, List<Note>>> watchNotes() async {
     try {
       final client = getIt<Supabase>().client;
-      final f = await client.from(todo).select().csv();
-      print(f);
-      print("success");
-      return left(const Failure.serverFailure());
+      final response = await client.from(table).select("*");
+      final List<Note> notes = [];
+      for (final raw in response) {
+        final dto = NoteDtos.fromJson(raw as Map<String, dynamic>);
+        notes.add(dto.toDomain());
+      }
+      return right(notes);
     } on PostgrestException catch (e) {
-      print(e.toString());
       return left(Failure.clientFailure(e.message));
     }
   }

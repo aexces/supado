@@ -6,6 +6,7 @@ import 'package:supado/presentation/widgets/theme_switcher.dart';
 
 import '../../../application/note/note_form/note_form_bloc.dart';
 import '../../widgets/logout.dart';
+import 'note_builder.dart';
 
 class NoteBody extends StatelessWidget {
   const NoteBody({super.key});
@@ -25,6 +26,7 @@ class NoteBody extends StatelessWidget {
             ],
           ),
           body: const Scaffold(
+            body: NoteBuilder(),
             floatingActionButton: AddNote(),
           ),
         );

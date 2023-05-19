@@ -26,6 +26,8 @@ ThemeData lightThemeData() {
     ),
     scaffoldBackgroundColor: AppColors.lightBackgroundColor,
     progressIndicatorTheme: buildIndicatorTheme(AppColors.lightPrimaryColor),
+    floatingActionButtonTheme:
+        floatingActionButtonTheme(AppColors.lightPrimaryColor),
   );
 }
 
@@ -44,12 +46,20 @@ ThemeData darkThemeData() {
     ),
     scaffoldBackgroundColor: AppColors.darkBackgroundColor,
     progressIndicatorTheme: buildIndicatorTheme(AppColors.darkPrimaryColor),
+    floatingActionButtonTheme:
+        floatingActionButtonTheme(AppColors.darkPrimaryColor),
   );
 }
 
 ProgressIndicatorThemeData buildIndicatorTheme(Color color) {
   return ProgressIndicatorThemeData(
     color: color,
+  );
+}
+
+FloatingActionButtonThemeData floatingActionButtonTheme(Color color) {
+  return FloatingActionButtonThemeData(
+    backgroundColor: color,
   );
 }
 

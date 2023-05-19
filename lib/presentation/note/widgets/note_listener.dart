@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supado/presentation/core/strings.dart';
 import 'package:supado/presentation/extension/snackbar_extension.dart';
-import 'package:supado/presentation/sign_in/widgets/sign_in_body.dart';
-import '../../../application/auth/sign_in/sign_in_bloc.dart';
-import '../../core/router.dart';
+import '../../../application/note/note_form/note_form_bloc.dart';
+import '../../core/strings.dart';
+import 'note_body.dart';
 
-class SignInListener extends StatelessWidget {
-  const SignInListener({super.key});
+class NoteListener extends StatelessWidget {
+  const NoteListener({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SignInBloc, SignInState>(
+    return BlocListener<NoteFormBloc, NoteFormState>(
       listenWhen: (p, c) =>
           p.failureOrSuccessOption != c.failureOrSuccessOption,
       listener: (context, state) {
@@ -24,13 +23,10 @@ class SignInListener extends StatelessWidget {
                       clientFailure: (e) => e.msg,
                     ),
                   ),
-                  (_) => Navigator.of(context).pushNamedAndRemoveUntil(
-                    router[AppRouter.note]!,
-                    (route) => false,
-                  ),
+                  (_) => null,
                 ));
       },
-      child: const SignInBody(),
+      child: const NoteBody(),
     );
   }
 }

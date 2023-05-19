@@ -41,3 +41,32 @@ class Password extends ValueObject<String> {
   }
   const Password._(this.value);
 }
+
+class Note extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  static const maxLength = 20;
+  static const minLength = 2;
+
+  factory Note(String input) {
+    return Note._(validateStringNotEmpty(input)
+        .flatMap((a) => validateMinStringLength(a, minLength)));
+  }
+  const Note._(this.value);
+}
+
+class Message extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  static const maxLength = 30;
+  static const minLength = 5;
+  static const maxLines = 2;
+
+  factory Message(String input) {
+    return Message._(validateStringNotEmpty(input)
+        .flatMap((a) => validateMinStringLength(a, minLength)));
+  }
+  const Message._(this.value);
+}

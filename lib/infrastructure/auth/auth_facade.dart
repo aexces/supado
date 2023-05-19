@@ -6,7 +6,7 @@ import 'package:supado/domain/core/failure.dart';
 import 'package:supado/injection.dart';
 import 'package:supado/presentation/core/functions.dart';
 
-import '../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/i_auth_facade.dart';
 
 @Injectable(as: IAuthFacade)
 @prod

@@ -15,7 +15,7 @@ class SplashPage extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) => Navigator.of(context).pushNamedAndRemoveUntil(
-            router[AppRouter.home]!,
+            router[AppRouter.note]!,
             (route) => false,
           ),
           unAuthenticated: (_) => Navigator.of(context).pushNamedAndRemoveUntil(

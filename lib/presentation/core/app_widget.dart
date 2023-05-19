@@ -4,7 +4,7 @@ import 'package:supado/application/auth/auth_bloc.dart';
 import 'package:supado/application/theme/theme_bloc.dart';
 import 'package:supado/injection.dart';
 import 'package:supado/presentation/core/router.dart';
-import 'package:supado/presentation/home/home_page.dart';
+import 'package:supado/presentation/note/note_page.dart';
 import 'package:supado/presentation/sign_in/sign_in_page.dart';
 import 'package:supado/presentation/theme/theme.dart';
 import '../splash/splash_page.dart';
@@ -41,7 +41,7 @@ class AppWidget extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         router[AppRouter.splash]!: (_) => const SplashPage(),
         router[AppRouter.signIn]!: (_) => const SignInPage(),
-        router[AppRouter.home]!: (_) => const HomePage(),
+        router[AppRouter.note]!: (_) => const NotePage(),
       },
     );
   }

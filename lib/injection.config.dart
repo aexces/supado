@@ -8,10 +8,13 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i6;
-import 'application/auth/sign_in/sign_in_bloc.dart' as _i5;
+import 'application/auth/auth_bloc.dart' as _i9;
+import 'application/auth/sign_in/sign_in_bloc.dart' as _i8;
+import 'application/note/note_form/note_form_bloc.dart' as _i7;
 import 'domain/auth/i_auth_facade.dart' as _i3;
-import 'infrastructure/auth_facade.dart' as _i4;
+import 'domain/note/i_note_repo.dart' as _i5;
+import 'infrastructure/auth/auth_facade.dart' as _i4;
+import 'infrastructure/note/note_repo.dart' as _i6;
 
 const String _prod = 'prod';
 // ignore_for_file: unnecessary_lambdas
@@ -31,12 +34,20 @@ _i1.GetIt $initGetIt(
     () => _i4.AuthFacade(),
     registerFor: {_prod},
   );
-  gh.factory<_i5.SignInBloc>(
-    () => _i5.SignInBloc(get<_i3.IAuthFacade>()),
+  gh.factory<_i5.INoteRepo>(
+    () => _i6.HomeRepo(),
     registerFor: {_prod},
   );
-  gh.factory<_i6.AuthBloc>(
-    () => _i6.AuthBloc(get<_i3.IAuthFacade>()),
+  gh.factory<_i7.NoteFormBloc>(
+    () => _i7.NoteFormBloc(get<_i5.INoteRepo>()),
+    registerFor: {_prod},
+  );
+  gh.factory<_i8.SignInBloc>(
+    () => _i8.SignInBloc(get<_i3.IAuthFacade>()),
+    registerFor: {_prod},
+  );
+  gh.factory<_i9.AuthBloc>(
+    () => _i9.AuthBloc(get<_i3.IAuthFacade>()),
     registerFor: {_prod},
   );
   return get;

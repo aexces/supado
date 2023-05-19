@@ -21,7 +21,12 @@ class SubmitButton extends StatelessWidget {
                     child: MaterialButton(
                       height: 50,
                       color: Theme.of(context).primaryColor,
-                      child: const Text("SIGN IN"),
+                      child: const Text(
+                        "SIGN IN",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                       onPressed: () => context.read<SignInBloc>().add(
                             const SignInEvent.signIn(),
                           ),
@@ -32,7 +37,12 @@ class SubmitButton extends StatelessWidget {
                     child: MaterialButton(
                       height: 50,
                       color: Theme.of(context).primaryColor,
-                      child: const Text("SIGN UP"),
+                      child: const Text(
+                        "SIGN UP",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
                       onPressed: () => context.read<SignInBloc>().add(
                             const SignInEvent.signUp(),
                           ),

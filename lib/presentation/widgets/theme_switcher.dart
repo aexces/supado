@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supado/presentation/theme/theme.dart';
 
-import '../../../application/theme/theme_bloc.dart';
+import '../../application/theme/theme_bloc.dart';
+import '../theme/theme.dart';
 
-class HomeTheme extends StatelessWidget {
-  const HomeTheme({super.key});
+class ThemeSwitcher extends StatelessWidget {
+  const ThemeSwitcher({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class HomeTheme extends StatelessWidget {
                 ),
               ),
           icon: Icon(
-            isLight ? Icons.nightlight_round_rounded : Icons.sunny,
+            isLight ? Icons.sunny : Icons.nightlight_round_rounded,
             color: Theme.of(context).scaffoldBackgroundColor,
           ),
         );

@@ -1,11 +1,11 @@
 enum AppRouter {
   splash,
   signIn,
-  home,
+  note,
 }
 
 final router = {
   AppRouter.splash: "/",
   AppRouter.signIn: "/signIn",
-  AppRouter.home: "/home",
+  AppRouter.note: "/note",
 };

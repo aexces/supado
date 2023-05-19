@@ -222,20 +222,12 @@ abstract class _SelectedIndexChanged implements HomeEvent {
 }
 
 /// @nodoc
-mixin _$HomeState {
-  int get selectedIndex => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $HomeStateCopyWith<HomeState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+mixin _$HomeState {}
 
 /// @nodoc
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
-  @useResult
-  $Res call({int selectedIndex});
 }
 
 /// @nodoc
@@ -247,29 +239,13 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? selectedIndex = null,
-  }) {
-    return _then(_value.copyWith(
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+abstract class _$$_HomeStateCopyWith<$Res> {
   factory _$$_HomeStateCopyWith(
           _$_HomeState value, $Res Function(_$_HomeState) then) =
       __$$_HomeStateCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int selectedIndex});
 }
 
 /// @nodoc
@@ -279,60 +255,28 @@ class __$$_HomeStateCopyWithImpl<$Res>
   __$$_HomeStateCopyWithImpl(
       _$_HomeState _value, $Res Function(_$_HomeState) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? selectedIndex = null,
-  }) {
-    return _then(_$_HomeState(
-      selectedIndex: null == selectedIndex
-          ? _value.selectedIndex
-          : selectedIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({required this.selectedIndex});
-
-  @override
-  final int selectedIndex;
+  const _$_HomeState();
 
   @override
   String toString() {
-    return 'HomeState(selectedIndex: $selectedIndex)';
+    return 'HomeState()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_HomeState &&
-            (identical(other.selectedIndex, selectedIndex) ||
-                other.selectedIndex == selectedIndex));
+        (other.runtimeType == runtimeType && other is _$_HomeState);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedIndex);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({required final int selectedIndex}) = _$_HomeState;
-
-  @override
-  int get selectedIndex;
-  @override
-  @JsonKey(ignore: true)
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _HomeState() = _$_HomeState;
 }

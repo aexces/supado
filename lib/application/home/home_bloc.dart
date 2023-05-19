@@ -8,11 +8,11 @@ part 'home_bloc.freezed.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeState.initial()) {
     on<HomeEvent>((event, emit) async {
-      await event.map(
-        selectedIndexChanged: (e) async => emit(state.copyWith(
-          selectedIndex: e.selectedIndex,
-        )),
-      );
+      // await event.map(
+      //   selectedIndexChanged: (e) async => emit(state.copyWith(
+      //     selectedIndex: e.selectedIndex,
+      //   )),
+      // );
     });
   }
 }

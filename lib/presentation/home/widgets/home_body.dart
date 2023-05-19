@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:supado/presentation/core/spacing.dart';
 
 import '../../../application/home/home_bloc.dart';
-import 'home_bar.dart';
+import 'home_logout.dart';
+import 'home_theme.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -14,22 +16,16 @@ class HomeBody extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: const Text("SUPADO"),
+            actions: const [
+              HomeTheme(),
+              Spacing.width05,
+              HomeLogout(),
+              Spacing.width10,
+            ],
           ),
-          body: buildBody(state.selectedIndex),
-          bottomNavigationBar: const HomeBar(),
+          body: const Scaffold(),
         );
       },
     );
-  }
-
-  Widget buildBody(int value) {
-    switch (value) {
-      case 0:
-        return const Scaffold();
-      case 1:
-        return const Scaffold();
-      default:
-        return const Scaffold();
-    }
   }
 }

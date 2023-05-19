@@ -16,9 +16,8 @@ ThemeData lightThemeData() {
     primaryColor: AppColors.lightPrimaryColor,
     appBarTheme: appBarTheme(
       color: AppColors.lightPrimaryColor,
-      iconColor: AppColors.lightPrimaryColor,
+      iconColor: AppColors.lightBackgroundColor,
     ),
-
     inputDecorationTheme: InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       enabledBorder: buildBorder(AppColors.lightPrimaryColor),
@@ -26,7 +25,6 @@ ThemeData lightThemeData() {
       focusedBorder: buildBorder(AppColors.lightPrimaryColor),
     ),
     scaffoldBackgroundColor: AppColors.lightBackgroundColor,
-    // buttonTheme: buildButtonTheme(AppColors.lightPrimaryColor),
     progressIndicatorTheme: buildIndicatorTheme(AppColors.lightPrimaryColor),
   );
 }
@@ -37,7 +35,7 @@ ThemeData darkThemeData() {
     primaryColor: AppColors.darkPrimaryColor,
     appBarTheme: appBarTheme(
       color: AppColors.darkPrimaryColor,
-      iconColor: AppColors.darkPrimaryColor,
+      iconColor: AppColors.darkBackgroundColor,
     ),
     inputDecorationTheme: InputDecorationTheme(
       enabledBorder: buildBorder(AppColors.darkPrimaryColor),
@@ -45,7 +43,6 @@ ThemeData darkThemeData() {
       focusedBorder: buildBorder(AppColors.darkPrimaryColor),
     ),
     scaffoldBackgroundColor: AppColors.darkBackgroundColor,
-    // buttonTheme: buildButtonTheme(AppColors.darkPrimaryColor),
     progressIndicatorTheme: buildIndicatorTheme(AppColors.darkPrimaryColor),
   );
 }

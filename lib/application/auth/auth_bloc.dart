@@ -1,7 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:supado/domain/auth/i_auth_facade.dart';
+import 'package:supado/injection.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -23,7 +25,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           ));
         },
         userAuthenticated: (e) async {},
-        signOut: (e) async {},
+        signOut: (e) async {
+          await getIt<Supabase>().client.auth.signOut();
+        },
       );
     });
   }

@@ -28,7 +28,7 @@ class NoteCard extends HookWidget {
                       const NoteActorState.deleting() &&
                   notifier.value == note
               ? const CenterLoad()
-              : const Icon(Icons.delete, size: 18),
+              : const Icon(Icons.check_rounded),
         ),
         onTap: () {
           context.read<NoteFormBloc>().add(const NoteFormEvent.clear());
@@ -37,10 +37,11 @@ class NoteCard extends HookWidget {
             builder: (_) => MultiBlocProvider(
               providers: [
                 BlocProvider.value(
-                  value: context.read<NoteFormBloc>(),
+                  value: context.read<NoteFormBloc>()
+                    ..add(NoteFormEvent.updateNote(note)),
                 ),
               ],
-              child: const NoteDialog(),
+              child: const NoteDialog("UPDATE"),
             ),
           );
         },

@@ -55,10 +55,10 @@ class HomeRepo implements INoteRepo {
       final id = note.noteID.getOrCrash();
       final todoStr = note.todo.getOrCrash();
       final messageStr = note.message.getOrCrash();
-      await client.from(table).update({'id': id}).match({
+      await client.from(table).update({
         "todo": todoStr,
         "message": messageStr,
-      });
+      }).eq("id", id);
       return right(unit);
     } on PostgrestException catch (e) {
       return left(Failure.clientFailure(e.message));

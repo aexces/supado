@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:supado/domain/core/value_objects.dart';
 import '../../../application/note/note_form/note_form_bloc.dart';
 
-class NoteField extends StatelessWidget {
+class NoteField extends HookWidget {
   const NoteField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NoteFormBloc, NoteFormState>(
+    final controller = useTextEditingController();
+
+    return BlocConsumer<NoteFormBloc, NoteFormState>(
+      listenWhen: (p, c) => p.isUpdating != c.isUpdating,
+      listener: (context, state) {
+        controller.text = state.note.todo.value.getOrElse(() => "");
+      },
       buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
       builder: (context, state) {
         return TextFormField(
+          controller: controller,
           autovalidateMode: state.showErrorMessages
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,

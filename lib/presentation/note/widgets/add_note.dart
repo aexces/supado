@@ -19,7 +19,7 @@ class AddNote extends StatelessWidget {
                 value: context.read<NoteFormBloc>(),
               ),
             ],
-            child: const NoteDialog(),
+            child: const NoteDialog("CREATE"),
           ),
         );
       },

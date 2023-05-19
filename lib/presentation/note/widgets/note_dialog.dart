@@ -7,8 +7,8 @@ import '../action/message_field.dart';
 import '../action/note_field.dart';
 
 class NoteDialog extends StatelessWidget {
-  const NoteDialog({super.key});
-
+  const NoteDialog(this.text, {super.key});
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -23,22 +23,22 @@ class NoteDialog extends StatelessWidget {
           child: ListView(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            children: const [
+            children: [
               Spacing.height10,
               Text(
-                "TODO",
+                text,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Spacing.height20,
-              NoteField(),
+              const NoteField(),
               Spacing.height10,
-              MessageField(),
+              const MessageField(),
               Spacing.height20,
-              CreateButton(),
+              const CreateButton(),
               Spacing.height10,
             ],
           ),

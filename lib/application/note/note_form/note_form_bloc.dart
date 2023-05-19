@@ -23,6 +23,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
     on<NoteFormEvent>((event, emit) async {
       await event.map(
         clear: (_) async => emit(state.copyWith(
+          isUpdating: false,
           isCreating: false,
           showErrorMessages: false,
           note: Note.empty(),
@@ -30,6 +31,8 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         )),
         updateNote: (e) async => emit(state.copyWith(
           isUpdating: true,
+          note: e.note,
+          failureOrSuccessOption: none(),
         )),
         todoChanged: (e) async => emit(state.copyWith(
           note: state.note.copyWith(
@@ -46,7 +49,9 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         createNote: (e) async {
           if (state.isCreating) return;
           Either<Failure, Unit>? failureOrSuccess;
-          final isNoteValid = state.note.createFailureOption.isNone();
+          final isNoteValid = state.isUpdating
+              ? state.note.updateFailureOption.isNone()
+              : state.note.createFailureOption.isNone();
           final isUserValid =
               isValid(getIt<Supabase>().client.auth.currentUser) as bool;
           if (isNoteValid && isUserValid) {
@@ -54,7 +59,9 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
               isCreating: true,
               failureOrSuccessOption: none(),
             ));
-            failureOrSuccess = await _repo.createNote(state.note);
+            failureOrSuccess = state.isUpdating
+                ? await _repo.updateNote(state.note)
+                : await _repo.createNote(state.note);
           }
           emit(state.copyWith(
             isCreating: false,

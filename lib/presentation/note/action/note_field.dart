@@ -24,16 +24,17 @@ class NoteField extends StatelessWidget {
           onChanged: (value) => context.read<NoteFormBloc>().add(
                 NoteFormEvent.todoChanged(value),
               ),
-          validator: (_) => context.read<NoteFormBloc>().state.todo.value.fold(
-                (l) => l.maybeMap(
-                  empty: (_) => "Note can't be empty!",
-                  shortLength: (_) =>
-                      "Note must contains ${Todo.minLength} letters",
-                  invalid: (_) => "Invalid Note",
-                  orElse: () => null,
-                ),
-                (r) => null,
-              ),
+          validator: (_) =>
+              context.read<NoteFormBloc>().state.note.todo.value.fold(
+                    (l) => l.maybeMap(
+                      empty: (_) => "Note can't be empty!",
+                      shortLength: (_) =>
+                          "Note must contains ${Todo.minLength} letters",
+                      invalid: (_) => "Invalid Note",
+                      orElse: () => null,
+                    ),
+                    (r) => null,
+                  ),
         );
       },
     );

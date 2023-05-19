@@ -19,6 +19,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
     required TResult Function(String todo) todoChanged,
     required TResult Function(String message) messageChanged,
     required TResult Function() createNote,
@@ -27,6 +28,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
     TResult? Function(String todo)? todoChanged,
     TResult? Function(String message)? messageChanged,
     TResult? Function()? createNote,
@@ -35,6 +37,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
     TResult Function(String todo)? todoChanged,
     TResult Function(String message)? messageChanged,
     TResult Function()? createNote,
@@ -44,6 +47,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
     required TResult Function(_TodoChanged value) todoChanged,
     required TResult Function(_MessageChanged value) messageChanged,
     required TResult Function(_CreateNote value) createNote,
@@ -52,6 +56,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
     TResult? Function(_TodoChanged value)? todoChanged,
     TResult? Function(_MessageChanged value)? messageChanged,
     TResult? Function(_CreateNote value)? createNote,
@@ -60,6 +65,7 @@ mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
     TResult Function(_TodoChanged value)? todoChanged,
     TResult Function(_MessageChanged value)? messageChanged,
     TResult Function(_CreateNote value)? createNote,
@@ -123,6 +129,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
     required TResult Function(String todo) todoChanged,
     required TResult Function(String message) messageChanged,
     required TResult Function() createNote,
@@ -134,6 +141,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
     TResult? Function(String todo)? todoChanged,
     TResult? Function(String message)? messageChanged,
     TResult? Function()? createNote,
@@ -145,6 +153,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
     TResult Function(String todo)? todoChanged,
     TResult Function(String message)? messageChanged,
     TResult Function()? createNote,
@@ -160,6 +169,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
     required TResult Function(_TodoChanged value) todoChanged,
     required TResult Function(_MessageChanged value) messageChanged,
     required TResult Function(_CreateNote value) createNote,
@@ -171,6 +181,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
     TResult? Function(_TodoChanged value)? todoChanged,
     TResult? Function(_MessageChanged value)? messageChanged,
     TResult? Function(_CreateNote value)? createNote,
@@ -182,6 +193,7 @@ class _$_Clear implements _Clear {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
     TResult Function(_TodoChanged value)? todoChanged,
     TResult Function(_MessageChanged value)? messageChanged,
     TResult Function(_CreateNote value)? createNote,
@@ -196,6 +208,167 @@ class _$_Clear implements _Clear {
 
 abstract class _Clear implements NoteFormEvent {
   const factory _Clear() = _$_Clear;
+}
+
+/// @nodoc
+abstract class _$$_UpdateNoteCopyWith<$Res> {
+  factory _$$_UpdateNoteCopyWith(
+          _$_UpdateNote value, $Res Function(_$_UpdateNote) then) =
+      __$$_UpdateNoteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Note note});
+
+  $NoteCopyWith<$Res> get note;
+}
+
+/// @nodoc
+class __$$_UpdateNoteCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res, _$_UpdateNote>
+    implements _$$_UpdateNoteCopyWith<$Res> {
+  __$$_UpdateNoteCopyWithImpl(
+      _$_UpdateNote _value, $Res Function(_$_UpdateNote) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? note = null,
+  }) {
+    return _then(_$_UpdateNote(
+      null == note
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NoteCopyWith<$Res> get note {
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateNote implements _UpdateNote {
+  const _$_UpdateNote(this.note);
+
+  @override
+  final Note note;
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.updateNote(note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateNote &&
+            (identical(other.note, note) || other.note == note));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, note);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateNoteCopyWith<_$_UpdateNote> get copyWith =>
+      __$$_UpdateNoteCopyWithImpl<_$_UpdateNote>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
+    required TResult Function(String todo) todoChanged,
+    required TResult Function(String message) messageChanged,
+    required TResult Function() createNote,
+  }) {
+    return updateNote(note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
+    TResult? Function(String todo)? todoChanged,
+    TResult? Function(String message)? messageChanged,
+    TResult? Function()? createNote,
+  }) {
+    return updateNote?.call(note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
+    TResult Function(String todo)? todoChanged,
+    TResult Function(String message)? messageChanged,
+    TResult Function()? createNote,
+    required TResult orElse(),
+  }) {
+    if (updateNote != null) {
+      return updateNote(note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
+    required TResult Function(_TodoChanged value) todoChanged,
+    required TResult Function(_MessageChanged value) messageChanged,
+    required TResult Function(_CreateNote value) createNote,
+  }) {
+    return updateNote(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
+    TResult? Function(_TodoChanged value)? todoChanged,
+    TResult? Function(_MessageChanged value)? messageChanged,
+    TResult? Function(_CreateNote value)? createNote,
+  }) {
+    return updateNote?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
+    TResult Function(_TodoChanged value)? todoChanged,
+    TResult Function(_MessageChanged value)? messageChanged,
+    TResult Function(_CreateNote value)? createNote,
+    required TResult orElse(),
+  }) {
+    if (updateNote != null) {
+      return updateNote(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateNote implements NoteFormEvent {
+  const factory _UpdateNote(final Note note) = _$_UpdateNote;
+
+  Note get note;
+  @JsonKey(ignore: true)
+  _$$_UpdateNoteCopyWith<_$_UpdateNote> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -263,6 +436,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
     required TResult Function(String todo) todoChanged,
     required TResult Function(String message) messageChanged,
     required TResult Function() createNote,
@@ -274,6 +448,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
     TResult? Function(String todo)? todoChanged,
     TResult? Function(String message)? messageChanged,
     TResult? Function()? createNote,
@@ -285,6 +460,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
     TResult Function(String todo)? todoChanged,
     TResult Function(String message)? messageChanged,
     TResult Function()? createNote,
@@ -300,6 +476,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
     required TResult Function(_TodoChanged value) todoChanged,
     required TResult Function(_MessageChanged value) messageChanged,
     required TResult Function(_CreateNote value) createNote,
@@ -311,6 +488,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
     TResult? Function(_TodoChanged value)? todoChanged,
     TResult? Function(_MessageChanged value)? messageChanged,
     TResult? Function(_CreateNote value)? createNote,
@@ -322,6 +500,7 @@ class _$_TodoChanged implements _TodoChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
     TResult Function(_TodoChanged value)? todoChanged,
     TResult Function(_MessageChanged value)? messageChanged,
     TResult Function(_CreateNote value)? createNote,
@@ -408,6 +587,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
     required TResult Function(String todo) todoChanged,
     required TResult Function(String message) messageChanged,
     required TResult Function() createNote,
@@ -419,6 +599,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
     TResult? Function(String todo)? todoChanged,
     TResult? Function(String message)? messageChanged,
     TResult? Function()? createNote,
@@ -430,6 +611,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
     TResult Function(String todo)? todoChanged,
     TResult Function(String message)? messageChanged,
     TResult Function()? createNote,
@@ -445,6 +627,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
     required TResult Function(_TodoChanged value) todoChanged,
     required TResult Function(_MessageChanged value) messageChanged,
     required TResult Function(_CreateNote value) createNote,
@@ -456,6 +639,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
     TResult? Function(_TodoChanged value)? todoChanged,
     TResult? Function(_MessageChanged value)? messageChanged,
     TResult? Function(_CreateNote value)? createNote,
@@ -467,6 +651,7 @@ class _$_MessageChanged implements _MessageChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
     TResult Function(_TodoChanged value)? todoChanged,
     TResult Function(_MessageChanged value)? messageChanged,
     TResult Function(_CreateNote value)? createNote,
@@ -527,6 +712,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() clear,
+    required TResult Function(Note note) updateNote,
     required TResult Function(String todo) todoChanged,
     required TResult Function(String message) messageChanged,
     required TResult Function() createNote,
@@ -538,6 +724,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? clear,
+    TResult? Function(Note note)? updateNote,
     TResult? Function(String todo)? todoChanged,
     TResult? Function(String message)? messageChanged,
     TResult? Function()? createNote,
@@ -549,6 +736,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? clear,
+    TResult Function(Note note)? updateNote,
     TResult Function(String todo)? todoChanged,
     TResult Function(String message)? messageChanged,
     TResult Function()? createNote,
@@ -564,6 +752,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Clear value) clear,
+    required TResult Function(_UpdateNote value) updateNote,
     required TResult Function(_TodoChanged value) todoChanged,
     required TResult Function(_MessageChanged value) messageChanged,
     required TResult Function(_CreateNote value) createNote,
@@ -575,6 +764,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Clear value)? clear,
+    TResult? Function(_UpdateNote value)? updateNote,
     TResult? Function(_TodoChanged value)? todoChanged,
     TResult? Function(_MessageChanged value)? messageChanged,
     TResult? Function(_CreateNote value)? createNote,
@@ -586,6 +776,7 @@ class _$_CreateNote implements _CreateNote {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Clear value)? clear,
+    TResult Function(_UpdateNote value)? updateNote,
     TResult Function(_TodoChanged value)? todoChanged,
     TResult Function(_MessageChanged value)? messageChanged,
     TResult Function(_CreateNote value)? createNote,
@@ -605,9 +796,9 @@ abstract class _CreateNote implements NoteFormEvent {
 /// @nodoc
 mixin _$NoteFormState {
   bool get isCreating => throw _privateConstructorUsedError;
+  bool get isUpdating => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
-  Todo get todo => throw _privateConstructorUsedError;
-  Message get message => throw _privateConstructorUsedError;
+  Note get note => throw _privateConstructorUsedError;
   Option<Either<Failure, Unit>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -624,10 +815,12 @@ abstract class $NoteFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isCreating,
+      bool isUpdating,
       bool showErrorMessages,
-      Todo todo,
-      Message message,
+      Note note,
       Option<Either<Failure, Unit>> failureOrSuccessOption});
+
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -644,9 +837,9 @@ class _$NoteFormStateCopyWithImpl<$Res, $Val extends NoteFormState>
   @override
   $Res call({
     Object? isCreating = null,
+    Object? isUpdating = null,
     Object? showErrorMessages = null,
-    Object? todo = null,
-    Object? message = null,
+    Object? note = null,
     Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -654,23 +847,31 @@ class _$NoteFormStateCopyWithImpl<$Res, $Val extends NoteFormState>
           ? _value.isCreating
           : isCreating // ignore: cast_nullable_to_non_nullable
               as bool,
+      isUpdating: null == isUpdating
+          ? _value.isUpdating
+          : isUpdating // ignore: cast_nullable_to_non_nullable
+              as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      todo: null == todo
-          ? _value.todo
-          : todo // ignore: cast_nullable_to_non_nullable
-              as Todo,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Message,
+      note: null == note
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, Unit>>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NoteCopyWith<$Res> get note {
+    return $NoteCopyWith<$Res>(_value.note, (value) {
+      return _then(_value.copyWith(note: value) as $Val);
+    });
   }
 }
 
@@ -684,10 +885,13 @@ abstract class _$$_NoteFormStateCopyWith<$Res>
   @useResult
   $Res call(
       {bool isCreating,
+      bool isUpdating,
       bool showErrorMessages,
-      Todo todo,
-      Message message,
+      Note note,
       Option<Either<Failure, Unit>> failureOrSuccessOption});
+
+  @override
+  $NoteCopyWith<$Res> get note;
 }
 
 /// @nodoc
@@ -702,9 +906,9 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isCreating = null,
+    Object? isUpdating = null,
     Object? showErrorMessages = null,
-    Object? todo = null,
-    Object? message = null,
+    Object? note = null,
     Object? failureOrSuccessOption = null,
   }) {
     return _then(_$_NoteFormState(
@@ -712,18 +916,18 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
           ? _value.isCreating
           : isCreating // ignore: cast_nullable_to_non_nullable
               as bool,
+      isUpdating: null == isUpdating
+          ? _value.isUpdating
+          : isUpdating // ignore: cast_nullable_to_non_nullable
+              as bool,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
               as bool,
-      todo: null == todo
-          ? _value.todo
-          : todo // ignore: cast_nullable_to_non_nullable
-              as Todo,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as Message,
+      note: null == note
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
           : failureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -737,25 +941,25 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
 class _$_NoteFormState implements _NoteFormState {
   const _$_NoteFormState(
       {required this.isCreating,
+      required this.isUpdating,
       required this.showErrorMessages,
-      required this.todo,
-      required this.message,
+      required this.note,
       required this.failureOrSuccessOption});
 
   @override
   final bool isCreating;
   @override
+  final bool isUpdating;
+  @override
   final bool showErrorMessages;
   @override
-  final Todo todo;
-  @override
-  final Message message;
+  final Note note;
   @override
   final Option<Either<Failure, Unit>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'NoteFormState(isCreating: $isCreating, showErrorMessages: $showErrorMessages, todo: $todo, message: $message, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'NoteFormState(isCreating: $isCreating, isUpdating: $isUpdating, showErrorMessages: $showErrorMessages, note: $note, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -765,17 +969,18 @@ class _$_NoteFormState implements _NoteFormState {
             other is _$_NoteFormState &&
             (identical(other.isCreating, isCreating) ||
                 other.isCreating == isCreating) &&
+            (identical(other.isUpdating, isUpdating) ||
+                other.isUpdating == isUpdating) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 other.showErrorMessages == showErrorMessages) &&
-            (identical(other.todo, todo) || other.todo == todo) &&
-            (identical(other.message, message) || other.message == message) &&
+            (identical(other.note, note) || other.note == note) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
                 other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isCreating, showErrorMessages,
-      todo, message, failureOrSuccessOption);
+  int get hashCode => Object.hash(runtimeType, isCreating, isUpdating,
+      showErrorMessages, note, failureOrSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -787,20 +992,20 @@ class _$_NoteFormState implements _NoteFormState {
 abstract class _NoteFormState implements NoteFormState {
   const factory _NoteFormState(
       {required final bool isCreating,
+      required final bool isUpdating,
       required final bool showErrorMessages,
-      required final Todo todo,
-      required final Message message,
+      required final Note note,
       required final Option<Either<Failure, Unit>>
           failureOrSuccessOption}) = _$_NoteFormState;
 
   @override
   bool get isCreating;
   @override
+  bool get isUpdating;
+  @override
   bool get showErrorMessages;
   @override
-  Todo get todo;
-  @override
-  Message get message;
+  Note get note;
   @override
   Option<Either<Failure, Unit>> get failureOrSuccessOption;
   @override

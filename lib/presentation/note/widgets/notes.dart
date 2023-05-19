@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supado/presentation/core/values.dart';
+import 'package:supado/presentation/note/widgets/note_card.dart';
 
 import '../../../domain/note/note.dart';
 
@@ -14,12 +15,7 @@ class Notes extends StatelessWidget {
       padding: const EdgeInsets.all(AppValues.padding / 2),
       itemBuilder: (context, index) {
         final note = notes[index];
-        return Card(
-          child: ListTile(
-            title: Text(note.todo.value.getOrElse(() => "")),
-            subtitle: Text(note.message.value.getOrElse(() => "")),
-          ),
-        );
+        return NoteCard(note);
       },
     );
   }

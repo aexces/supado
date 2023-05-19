@@ -60,7 +60,7 @@ class Message extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  static const maxLength = 30;
+  static const maxLength = 50;
   static const minLength = 5;
   static const maxLines = 2;
 

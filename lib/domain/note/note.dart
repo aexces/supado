@@ -21,8 +21,15 @@ class Note with _$Note {
       message: Message(""),
     );
   }
-  Option<ValueFailure<dynamic>> get failureOption {
+  Option<ValueFailure<dynamic>> get createFailureOption {
     return todo.failureOrUnit
+        .andThen(message.failureOrUnit)
+        .fold((f) => some(f), (_) => none());
+  }
+
+  Option<ValueFailure<dynamic>> get updateFailureOption {
+    return noteID.failureOrUnit
+        .andThen(todo.failureOrUnit)
         .andThen(message.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }

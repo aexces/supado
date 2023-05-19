@@ -8,10 +8,11 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'application/auth/auth_bloc.dart' as _i10;
-import 'application/auth/sign_in/sign_in_bloc.dart' as _i9;
-import 'application/note/note_form/note_form_bloc.dart' as _i7;
-import 'application/note/note_watcher/note_watcher_bloc.dart' as _i8;
+import 'application/auth/auth_bloc.dart' as _i11;
+import 'application/auth/sign_in/sign_in_bloc.dart' as _i10;
+import 'application/note/note_actor/note_actor_bloc.dart' as _i7;
+import 'application/note/note_form/note_form_bloc.dart' as _i8;
+import 'application/note/note_watcher/note_watcher_bloc.dart' as _i9;
 import 'domain/auth/i_auth_facade.dart' as _i3;
 import 'domain/note/i_note_repo.dart' as _i5;
 import 'infrastructure/auth/auth_facade.dart' as _i4;
@@ -39,20 +40,24 @@ _i1.GetIt $initGetIt(
     () => _i6.HomeRepo(),
     registerFor: {_prod},
   );
-  gh.factory<_i7.NoteFormBloc>(
-    () => _i7.NoteFormBloc(get<_i5.INoteRepo>()),
+  gh.factory<_i7.NoteActorBloc>(
+    () => _i7.NoteActorBloc(get<_i5.INoteRepo>()),
     registerFor: {_prod},
   );
-  gh.factory<_i8.NoteWatcherBloc>(
-    () => _i8.NoteWatcherBloc(get<_i5.INoteRepo>()),
+  gh.factory<_i8.NoteFormBloc>(
+    () => _i8.NoteFormBloc(get<_i5.INoteRepo>()),
     registerFor: {_prod},
   );
-  gh.factory<_i9.SignInBloc>(
-    () => _i9.SignInBloc(get<_i3.IAuthFacade>()),
+  gh.factory<_i9.NoteWatcherBloc>(
+    () => _i9.NoteWatcherBloc(get<_i5.INoteRepo>()),
     registerFor: {_prod},
   );
-  gh.factory<_i10.AuthBloc>(
-    () => _i10.AuthBloc(get<_i3.IAuthFacade>()),
+  gh.factory<_i10.SignInBloc>(
+    () => _i10.SignInBloc(get<_i3.IAuthFacade>()),
+    registerFor: {_prod},
+  );
+  gh.factory<_i11.AuthBloc>(
+    () => _i11.AuthBloc(get<_i3.IAuthFacade>()),
     registerFor: {_prod},
   );
   return get;

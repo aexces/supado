@@ -2,10 +2,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:supado/domain/note/i_note_repo.dart';
+import 'package:supado/injection.dart';
+import 'package:supado/presentation/core/functions.dart';
 
 import '../../../domain/core/failure.dart';
 import '../../../domain/core/value_objects.dart';
+import '../../../domain/note/note.dart';
 
 part 'note_form_event.dart';
 part 'note_form_state.dart';
@@ -21,33 +25,36 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
         clear: (_) async => emit(state.copyWith(
           isCreating: false,
           showErrorMessages: false,
-          todo: Todo(""),
-          message: Message(""),
+          note: Note.empty(),
           failureOrSuccessOption: none(),
         )),
+        updateNote: (e) async => emit(state.copyWith(
+          isUpdating: true,
+        )),
         todoChanged: (e) async => emit(state.copyWith(
-          todo: Todo(e.todo),
+          note: state.note.copyWith(
+            todo: Todo(e.todo),
+          ),
           failureOrSuccessOption: none(),
         )),
         messageChanged: (e) async => emit(state.copyWith(
-          message: Message(e.message),
+          note: state.note.copyWith(
+            message: Message(e.message),
+          ),
           failureOrSuccessOption: none(),
         )),
         createNote: (e) async {
           if (state.isCreating) return;
           Either<Failure, Unit>? failureOrSuccess;
-
-          final isTodoValid = state.todo.isValid();
-          final isMessageValid = state.message.isValid();
-          if (isTodoValid && isMessageValid) {
+          final isNoteValid = state.note.createFailureOption.isNone();
+          final isUserValid =
+              isValid(getIt<Supabase>().client.auth.currentUser) as bool;
+          if (isNoteValid && isUserValid) {
             emit(state.copyWith(
               isCreating: true,
               failureOrSuccessOption: none(),
             ));
-            failureOrSuccess = await _repo.createNote(
-              todo: state.todo,
-              message: state.message,
-            );
+            failureOrSuccess = await _repo.createNote(state.note);
           }
           emit(state.copyWith(
             isCreating: false,

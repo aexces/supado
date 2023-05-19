@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supado/presentation/extension/snackbar_extension.dart';
+import '../../../application/note/note_actor/note_actor_bloc.dart';
 import '../../../application/note/note_form/note_form_bloc.dart';
 import '../../../application/note/note_watcher/note_watcher_bloc.dart';
 import '../../core/strings.dart';
@@ -39,6 +40,22 @@ class NoteListener extends StatelessWidget {
           listener: (context, state) {
             state.maybeMap(
               noteFailure: (value) => context.showErrorSnackBar(
+                message: value.failure.map(
+                  serverFailure: (_) => AppStr.serverFailure,
+                  clientFailure: (e) => e.msg,
+                ),
+              ),
+              orElse: () => null,
+            );
+          },
+        ),
+        BlocListener<NoteActorBloc, NoteActorState>(
+          listener: (context, state) {
+            state.maybeMap(
+              deleteSuccess: (_) => context
+                  .read<NoteWatcherBloc>()
+                  .add(const NoteWatcherEvent.watchNotes()),
+              deleteFailure: (value) => context.showErrorSnackBar(
                 message: value.failure.map(
                   serverFailure: (_) => AppStr.serverFailure,
                   clientFailure: (e) => e.msg,

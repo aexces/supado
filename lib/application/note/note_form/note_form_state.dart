@@ -4,17 +4,17 @@ part of 'note_form_bloc.dart';
 class NoteFormState with _$NoteFormState {
   const factory NoteFormState({
     required bool isCreating,
+    required bool isUpdating,
     required bool showErrorMessages,
-    required Todo todo,
-    required Message message,
+    required Note note,
     required Option<Either<Failure, Unit>> failureOrSuccessOption,
   }) = _NoteFormState;
 
   factory NoteFormState.initial() => NoteFormState(
         isCreating: false,
+        isUpdating: false,
         showErrorMessages: false,
-        todo: Todo(""),
-        message: Message(""),
+        note: Note.empty(),
         failureOrSuccessOption: none(),
       );
 }

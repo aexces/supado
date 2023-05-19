@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:supado/presentation/core/spacing.dart';
-import 'package:supado/presentation/core/values.dart';
+import 'package:supado/presentation/note/widgets/note_dialog.dart';
 import '../../../application/note/note_form/note_form_bloc.dart';
-import '../action/create_button.dart';
-import '../action/message_field.dart';
-import '../action/note_field.dart';
 
 class AddNote extends StatelessWidget {
   const AddNote({super.key});
@@ -23,40 +19,7 @@ class AddNote extends StatelessWidget {
                 value: context.read<NoteFormBloc>(),
               ),
             ],
-            child: Dialog(
-              backgroundColor: Colors.transparent,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  borderRadius: BorderRadius.circular(AppValues.padding),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(AppValues.padding),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      Spacing.height10,
-                      Text(
-                        "TODO",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Spacing.height20,
-                      NoteField(),
-                      Spacing.height10,
-                      MessageField(),
-                      Spacing.height20,
-                      CreateButton(),
-                      Spacing.height10,
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            child: const NoteDialog(),
           ),
         );
       },

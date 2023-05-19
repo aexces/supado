@@ -26,7 +26,7 @@ class MessageField extends StatelessWidget {
                 NoteFormEvent.messageChanged(value),
               ),
           validator: (_) =>
-              context.read<NoteFormBloc>().state.message.value.fold(
+              context.read<NoteFormBloc>().state.note.message.value.fold(
                     (l) => l.maybeMap(
                       empty: (_) => "Message can't be empty!",
                       shortLength: (_) =>

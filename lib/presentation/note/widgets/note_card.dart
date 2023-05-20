@@ -6,6 +6,7 @@ import 'package:supado/presentation/widgets/loading.dart';
 import '../../../application/note/note_actor/note_actor_bloc.dart';
 import '../../../application/note/note_form/note_form_bloc.dart';
 import '../../../domain/note/note.dart';
+import 'delete_note_dialog.dart';
 import 'note_dialog.dart';
 
 class NoteCard extends HookWidget {
@@ -14,6 +15,7 @@ class NoteCard extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final notifier = useValueNotifier(Note.empty());
+
     return Card(
       child: ListTile(
         tileColor: Theme.of(context).canvasColor,
@@ -28,7 +30,7 @@ class NoteCard extends HookWidget {
                       const NoteActorState.deleting() &&
                   notifier.value == note
               ? const CenterLoad()
-              : const Icon(Icons.check_rounded),
+              : const Icon(Icons.check_outlined, size: 25),
         ),
         onTap: () {
           context.read<NoteFormBloc>().add(const NoteFormEvent.clear());
@@ -42,6 +44,19 @@ class NoteCard extends HookWidget {
                 ),
               ],
               child: const NoteDialog("UPDATE"),
+            ),
+          );
+        },
+        onLongPress: () async {
+          await showDialog(
+            context: context,
+            builder: (_) => MultiBlocProvider(
+              providers: [
+                BlocProvider.value(
+                  value: context.read<NoteActorBloc>(),
+                ),
+              ],
+              child: DeleteNote(note),
             ),
           );
         },

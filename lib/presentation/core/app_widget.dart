@@ -6,8 +6,8 @@ import 'package:supado/injection.dart';
 import 'package:supado/presentation/core/router.dart';
 import 'package:supado/presentation/note/note_page.dart';
 import 'package:supado/presentation/sign_in/sign_in_page.dart';
-import 'package:supado/presentation/theme/theme.dart';
 import '../splash/splash_page.dart';
+import '../theme/theme.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -17,13 +17,12 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => ThemeBloc(),
+          create: (context) =>
+              getIt<ThemeBloc>()..add(const ThemeEvent.getTheme()),
         ),
         BlocProvider(
-          create: (context) => getIt<AuthBloc>()
-            ..add(
-              const AuthEvent.authCheckRequested(),
-            ),
+          create: (context) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(

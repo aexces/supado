@@ -4,8 +4,8 @@ part of 'sign_in_bloc.dart';
 class SignInState with _$SignInState {
   const factory SignInState({
     required bool isSigning,
-    required EmailAddress emailAddress,
-    required Password password,
+    required bool isUpdating,
+    required Credentials credentials,
     required bool autoSave,
     required bool hidePassword,
     required bool showErrorMessages,
@@ -15,9 +15,9 @@ class SignInState with _$SignInState {
   factory SignInState.initial() => SignInState(
         isSigning: false,
         autoSave: false,
+        isUpdating: false,
         hidePassword: true,
-        emailAddress: EmailAddress(""),
-        password: Password(""),
+        credentials: Credentials.empty(),
         showErrorMessages: false,
         failureOrSuccessOption: none(),
       );

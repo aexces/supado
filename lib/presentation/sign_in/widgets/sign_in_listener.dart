@@ -24,10 +24,15 @@ class SignInListener extends StatelessWidget {
                       clientFailure: (e) => e.msg,
                     ),
                   ),
-                  (_) => Navigator.of(context).pushNamedAndRemoveUntil(
-                    router[AppRouter.note]!,
-                    (route) => false,
-                  ),
+                  (_) {
+                    context.read<SignInBloc>().add(state.autoSave
+                        ? const SignInEvent.saveCredentials()
+                        : const SignInEvent.removeCredentials());
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      router[AppRouter.note]!,
+                      (route) => false,
+                    );
+                  },
                 ));
       },
       child: const SignInBody(),

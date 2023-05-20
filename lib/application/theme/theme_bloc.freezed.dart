@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ThemeEvent {
-  AppTheme get theme => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AppTheme theme) themeChanged,
+    required TResult Function() getTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AppTheme theme)? themeChanged,
+    TResult? Function()? getTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AppTheme theme)? themeChanged,
+    TResult Function()? getTheme,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ThemeChanged value) themeChanged,
+    required TResult Function(_GetTheme value) getTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ThemeChanged value)? themeChanged,
+    TResult? Function(_GetTheme value)? getTheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ThemeChanged value)? themeChanged,
+    TResult Function(_GetTheme value)? getTheme,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ThemeEventCopyWith<ThemeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ThemeEventCopyWith<$Res> {
   factory $ThemeEventCopyWith(
           ThemeEvent value, $Res Function(ThemeEvent) then) =
       _$ThemeEventCopyWithImpl<$Res, ThemeEvent>;
-  @useResult
-  $Res call({AppTheme theme});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? theme = null,
-  }) {
-    return _then(_value.copyWith(
-      theme: null == theme
-          ? _value.theme
-          : theme // ignore: cast_nullable_to_non_nullable
-              as AppTheme,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ThemeChangedCopyWith<$Res>
-    implements $ThemeEventCopyWith<$Res> {
+abstract class _$$_ThemeChangedCopyWith<$Res> {
   factory _$$_ThemeChangedCopyWith(
           _$_ThemeChanged value, $Res Function(_$_ThemeChanged) then) =
       __$$_ThemeChangedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({AppTheme theme});
 }
@@ -155,6 +139,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AppTheme theme) themeChanged,
+    required TResult Function() getTheme,
   }) {
     return themeChanged(theme);
   }
@@ -163,6 +148,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(AppTheme theme)? themeChanged,
+    TResult? Function()? getTheme,
   }) {
     return themeChanged?.call(theme);
   }
@@ -171,6 +157,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(AppTheme theme)? themeChanged,
+    TResult Function()? getTheme,
     required TResult orElse(),
   }) {
     if (themeChanged != null) {
@@ -183,6 +170,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ThemeChanged value) themeChanged,
+    required TResult Function(_GetTheme value) getTheme,
   }) {
     return themeChanged(this);
   }
@@ -191,6 +179,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_ThemeChanged value)? themeChanged,
+    TResult? Function(_GetTheme value)? getTheme,
   }) {
     return themeChanged?.call(this);
   }
@@ -199,6 +188,7 @@ class _$_ThemeChanged implements _ThemeChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ThemeChanged value)? themeChanged,
+    TResult Function(_GetTheme value)? getTheme,
     required TResult orElse(),
   }) {
     if (themeChanged != null) {
@@ -211,12 +201,112 @@ class _$_ThemeChanged implements _ThemeChanged {
 abstract class _ThemeChanged implements ThemeEvent {
   const factory _ThemeChanged(final AppTheme theme) = _$_ThemeChanged;
 
-  @override
   AppTheme get theme;
-  @override
   @JsonKey(ignore: true)
   _$$_ThemeChangedCopyWith<_$_ThemeChanged> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetThemeCopyWith<$Res> {
+  factory _$$_GetThemeCopyWith(
+          _$_GetTheme value, $Res Function(_$_GetTheme) then) =
+      __$$_GetThemeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetThemeCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$_GetTheme>
+    implements _$$_GetThemeCopyWith<$Res> {
+  __$$_GetThemeCopyWithImpl(
+      _$_GetTheme _value, $Res Function(_$_GetTheme) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetTheme implements _GetTheme {
+  const _$_GetTheme();
+
+  @override
+  String toString() {
+    return 'ThemeEvent.getTheme()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetTheme);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AppTheme theme) themeChanged,
+    required TResult Function() getTheme,
+  }) {
+    return getTheme();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AppTheme theme)? themeChanged,
+    TResult? Function()? getTheme,
+  }) {
+    return getTheme?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AppTheme theme)? themeChanged,
+    TResult Function()? getTheme,
+    required TResult orElse(),
+  }) {
+    if (getTheme != null) {
+      return getTheme();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ThemeChanged value) themeChanged,
+    required TResult Function(_GetTheme value) getTheme,
+  }) {
+    return getTheme(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ThemeChanged value)? themeChanged,
+    TResult? Function(_GetTheme value)? getTheme,
+  }) {
+    return getTheme?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ThemeChanged value)? themeChanged,
+    TResult Function(_GetTheme value)? getTheme,
+    required TResult orElse(),
+  }) {
+    if (getTheme != null) {
+      return getTheme(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTheme implements ThemeEvent {
+  const factory _GetTheme() = _$_GetTheme;
 }
 
 /// @nodoc

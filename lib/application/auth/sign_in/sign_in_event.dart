@@ -9,4 +9,7 @@ class SignInEvent with _$SignInEvent {
   const factory SignInEvent.obscureTextChanged() = _ObscureTextChanged;
   const factory SignInEvent.signIn() = _SignIn;
   const factory SignInEvent.signUp() = _SignUp;
+  const factory SignInEvent.saveCredentials() = _SaveCredentials;
+  const factory SignInEvent.getCredentials() = _GetCredentials;
+  const factory SignInEvent.removeCredentials() = _RemoveCredentials;
 }

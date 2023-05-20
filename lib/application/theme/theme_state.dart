@@ -4,5 +4,5 @@ part of 'theme_bloc.dart';
 class ThemeState with _$ThemeState {
   const factory ThemeState(AppTheme theme) = _ThemeState;
 
-  factory ThemeState.initial() => const ThemeState(AppTheme.dark);
+  factory ThemeState.initial() => const ThemeState(AppTheme.light);
 }

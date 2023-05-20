@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:supado/domain/auth/credentials.dart';
 import 'package:supado/domain/auth/i_auth_facade.dart';
 import 'package:supado/domain/core/failure.dart';
 import 'package:supado/domain/core/value_objects.dart';
@@ -18,11 +19,15 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     on<SignInEvent>((event, emit) async {
       await event.map(
         emailAddressChanged: (e) async => emit(state.copyWith(
-          emailAddress: EmailAddress(e.emailAddress),
+          credentials: state.credentials.copyWith(
+            emailAddress: EmailAddress(e.emailAddress),
+          ),
           failureOrSuccessOption: none(),
         )),
         passwordChanged: (e) async => emit(state.copyWith(
-          password: Password(e.password),
+          credentials: state.credentials.copyWith(
+            password: Password(e.password),
+          ),
           failureOrSuccessOption: none(),
         )),
         autoSaveChanged: (_) async => emit(state.copyWith(
@@ -33,22 +38,38 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           hidePassword: !state.hidePassword,
           failureOrSuccessOption: none(),
         )),
+        saveCredentials: (_) async {
+          if (state.credentials.failureOption.isSome()) return;
+          await _facade.saveCredentials(state.credentials);
+        },
+        removeCredentials: (_) async {
+          await _facade.removeCredentials();
+        },
+        getCredentials: (_) async {
+          final credentialsOption = await _facade.getCredentials();
+          emit(credentialsOption.fold(
+            () => state.copyWith(),
+            (credentials) => state.copyWith(
+              isUpdating: true,
+              autoSave: true,
+              credentials: credentials,
+              failureOrSuccessOption: none(),
+            ),
+          ));
+        },
         signIn: (e) async {
           if (state.isSigning) return;
           Either<Failure, Unit>? failureOrSuccess;
 
-          final isEmailValid = state.emailAddress.isValid();
-          final isPasswordValid = state.password.isValid();
-          if (isEmailValid && isPasswordValid) {
+          final isCredentialsValid = state.credentials.failureOption.isNone();
+          if (isCredentialsValid) {
             emit(state.copyWith(
               isSigning: true,
               failureOrSuccessOption: none(),
             ));
 
-            failureOrSuccess = await _facade.signInWithCredentials(
-              emailAddress: state.emailAddress,
-              password: state.password,
-            );
+            failureOrSuccess =
+                await _facade.signInWithCredentials(state.credentials);
           }
           emit(state.copyWith(
             isSigning: false,
@@ -59,18 +80,15 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         signUp: (e) async {
           if (state.isSigning) return;
           Either<Failure, Unit>? failureOrSuccess;
-          final isEmailValid = state.emailAddress.isValid();
-          final isPasswordValid = state.password.isValid();
-          if (isEmailValid && isPasswordValid) {
+          final isCredentialsValid = state.credentials.failureOption.isNone();
+          if (isCredentialsValid) {
             emit(state.copyWith(
               isSigning: true,
               failureOrSuccessOption: none(),
             ));
 
-            failureOrSuccess = await _facade.signUpWithCredentials(
-              emailAddress: state.emailAddress,
-              password: state.password,
-            );
+            failureOrSuccess =
+                await _facade.signUpWithCredentials(state.credentials);
           }
           emit(state.copyWith(
             isSigning: false,

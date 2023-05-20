@@ -11,7 +11,8 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SignInBloc>(),
+      create: (context) =>
+          getIt<SignInBloc>()..add(const SignInEvent.getCredentials()),
       child: const SignInListener(),
     );
   }

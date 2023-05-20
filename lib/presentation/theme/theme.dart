@@ -5,6 +5,11 @@ import '../core/values.dart';
 
 enum AppTheme { light, dark }
 
+final getTheme = {
+  AppTheme.light.name: AppTheme.light,
+  AppTheme.dark.name: AppTheme.dark,
+};
+
 final appThemeData = {
   AppTheme.light: lightThemeData(),
   AppTheme.dark: darkThemeData(),

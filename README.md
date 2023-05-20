@@ -5,7 +5,7 @@ Supado is a Todo service made with Flutter & Supabase
 ## Functionalities
 
 [![DEMO](https://img.youtube.com/vi/epvknjHbirc/0.jpg)](https://www.youtube.com/watch?v=epvknjHbirc)
-
+https://www.youtube.com/watch?v=epvknjHbirc
 <!-- - Sign In & Sign Up with Email & Password -->
 
 

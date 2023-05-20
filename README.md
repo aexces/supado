@@ -5,7 +5,14 @@ Supado is a Todo service made with Flutter & Supabase
 ## Functionalities
 
 [![DEMO](https://img.youtube.com/vi/epvknjHbirc/0.jpg)](https://www.youtube.com/watch?v=epvknjHbirc)
-https://www.youtube.com/watch?v=epvknjHbirc
+<br>
+
+  <a>File Encryption App</a> | Flutter
+  <br><br>
+
+https://user-images.githubusercontent.com/59445273/177509236-90a8d859-728c-45eb-9827-031485ca5be8.mp4
+
+<br>
 <!-- - Sign In & Sign Up with Email & Password -->
 
 
